@@ -19,4 +19,13 @@ public record ScheduleDto(LocalDateTime scheduledTime,
                 communicationType,
                 Status.PENDING);
     }
+
+    public static ScheduleDto toScheduleDto(Communication communication){
+        return new ScheduleDto(
+                communication.getScheduledTime(),
+                communication.getRecipient(),
+                communication.getMessage(),
+                communication.getCommunicationType()
+        );
+    }
 }

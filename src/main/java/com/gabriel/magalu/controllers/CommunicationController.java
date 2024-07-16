@@ -38,9 +38,9 @@ public class CommunicationController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Communication> cancelNotification(@PathVariable Long id){
-        Communication communication = communicationService.cancelNotification(id);
-        return ResponseEntity.ok(communication);
+    public ResponseEntity<ScheduleDto> cancelNotification(@PathVariable Long id){
+        ScheduleDto dto = communicationService.cancelNotification(id);
+        return ResponseEntity.ok(dto);
     }
 
 }

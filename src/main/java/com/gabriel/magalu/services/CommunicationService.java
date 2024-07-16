@@ -24,12 +24,13 @@ public class CommunicationService {
         return communicationRepository.findById(id);
     }
 
-    public Communication cancelNotification(Long id){
+    public ScheduleDto cancelNotification(Long id){
         Optional<Communication> communicationOptional = findById(id);
         if (communicationOptional.isPresent()){
             Communication communication = communicationOptional.get();
             communication.setStatus(Status.CANCELED);
-            return communicationRepository.save(communication);
+            communicationRepository.save(communication);
+            return ScheduleDto.toScheduleDto(communication);
         }
         throw new EntityNotFoundException("not found id:" + id);
     }
