@@ -9,7 +9,8 @@ import java.time.LocalDateTime;
 public record ScheduleDto(LocalDateTime scheduledTime,
                           String recipient,
                           String message,
-                          CommunicationType communicationType) {
+                          CommunicationType communicationType,
+                          Status status) {
 
     public Communication toCommunication(){
         return new Communication(
@@ -25,7 +26,8 @@ public record ScheduleDto(LocalDateTime scheduledTime,
                 communication.getScheduledTime(),
                 communication.getRecipient(),
                 communication.getMessage(),
-                communication.getCommunicationType()
+                communication.getCommunicationType(),
+                communication.getStatus()
         );
     }
 }
