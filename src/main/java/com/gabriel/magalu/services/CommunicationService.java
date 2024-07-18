@@ -8,6 +8,8 @@ import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -35,4 +37,14 @@ public class CommunicationService {
         throw new EntityNotFoundException("not found id:" + id);
     }
 
+    public void sendCommunication(LocalDateTime datetime){
+        List<Communication> pendingCommunications = communicationRepository.findByScheduledTimeBeforeAndStatus(datetime,
+                Status.PENDING);
+        for (Communication communication : pendingCommunications){
+            //TODO - send the notification
+            communication.setStatus(Status.SUCCESS);
+            communicationRepository.save(communication);
+        }
+
+    }
 }
