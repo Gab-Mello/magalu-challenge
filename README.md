@@ -1,36 +1,45 @@
-Descrição do desafio:
+# Challenge - Communication Platform Development
 
+## Technologies used
+![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white) ![Spring](https://img.shields.io/badge/spring-%236DB33F.svg?style=for-the-badge&logo=spring&logoColor=white) ![MySQL](https://img.shields.io/badge/mysql-4479A1.svg?style=for-the-badge&logo=mysql&logoColor=white) 
 
-Cenário
+## Scenario
+Magalu has presented a challenge to begin the development of a **communication platform**. The goal of the **first sprint** is to implement basic functionalities to schedule, query, and delete communication deliveries.
 
-O Magalu tem o desafio de desenvolver uma plataforma de comunicação. Você foi escolhido(a) para iniciar o desenvolvimento da primeira sprint.
+## Features
+- Schedule communication deliveries with date, recipient, and message.
+- Query the status of scheduled communications.
+- Delete scheduled communications.
 
-Requisitos
+## Technical Requirements
 
-Deve ter um endpoint que receba uma solicitação de agendamento de envio de comunicação (1):
+### 1. Endpoint for Scheduling Communication
+- Develop an endpoint to receive scheduling requests.
+- The data sent to this endpoint must include:
+  - **Date/Time of delivery**
+  - **Recipient**
+  - **Message**
+- Supported communication types:
+  - Email
+  - SMS
+  - Push Notification
+  - WhatsApp
+- Scheduling requests must be stored in the database. The database structure should be prepared to handle future functionalities, enabling sending the communication and updating its status without requiring structural changes.
 
-Este endpoint precisa ter no mínimo os seguintes campos:
-Data/Hora para o envio
-Destinatário
-Mensagem a ser entregue
-As possíveis comunicações que podem ser enviadas são: email, SMS, push e WhatsApp.
-Neste momento, precisamos deste canal de entrada para realizar o envio, ou seja, esse endpoint (1). O envio em si não será desenvolvido nesta etapa: você não precisa se preocupar com isso.
-Para esta sprint ficou decidido que a solicitação do agendamento do envio da comunicação será salva no banco de dados. Portanto, assim que receber a solicitação do agendamento do envio (1), ela deverá ser salva no banco de dados.
-Pense com carinho nessa estrutura do banco. Apesar de não ser você quem vai realizar o envio, a estrutura já precisa estar pronta para que o seu coleguinha não precise alterar nada quando for desenvolver esta funcionalidade. A preocupação no momento do envio será de enviar e alterar o status do registro no banco de dados.
-Deve ter um endpoint para consultar o status do agendamento de envio de comunicação (2):
+### 2. Endpoint to Query the Status of Scheduled Communication
+- This endpoint should allow querying the status of a previously scheduled delivery.
 
-O agendamento será feito no endpoint (1) e a consulta será feita por este outro endpoint.
-Deve ter um endpoint para remover um agendamento de envio de comunicação.
+### 3. Endpoint to Delete a Scheduled Communication
+- Provide functionality to remove a scheduled delivery from the system.
 
-Observações e Orientações Gerais
+## Scope of This Sprint
+At this stage, **developing the communication sending functionality is not required**. The focus is on:
+- Creating functional endpoints to manage the scheduling lifecycle.
+- Ensuring the database structure is robust enough to support future features.
 
-Temos preferência por desenvolvimento na linguagem Java, Python ou Node, mas pode ser usada qualquer linguagem; depois, apenas nos explique o porquê da sua escolha.
-Utilize um dos bancos de dados abaixo:
-MySQL
-PostgreSQL
-As APIs deverão seguir o modelo RESTful com formato JSON.
-Faça testes unitários, foque em uma suíte de testes bem organizada.
-Siga o que considera como boas práticas de programação.
-A criação do banco e das tabelas fica a seu critério de como será feita, seja via script, aplicação, etc.
-Seu desafio deve ser enviado preferencialmente como repositório GIT público (Github, Gitlab, Bitbucket), com commits pequenos e bem descritos, ou como arquivo compactado (ZIP ou TAR). O seu repositório deve estar com um modelo de licença de código aberto. Não envie nenhum arquivo além do próprio código compactado e sua documentação. Tome cuidado para não enviar imagens, vídeos, áudio, binários, etc.
+## Objective
+This project aims to showcase your skills in applying software development best practices, organizing code, creating efficient RESTful APIs, and structuring a database to meet current and future system requirements.
 
+---
+
+This README provides an overview of the challenge, ensuring easy navigation through the repository and a clear understanding of the scope.
